@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"cluster","Source":"./modules/cluster","Dir":""},{"Key":"iam","Source":"./modules/iam","Dir":""},{"Key":"node_group","Source":"./modules/asg_node_group","Dir":""},{"Key":"vpc","Source":"./modules/vpc","Dir":""}]}
