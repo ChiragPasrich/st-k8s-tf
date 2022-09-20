@@ -1,0 +1,43 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stgw
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:774974967276:certificate/299e8723-3d83-4cdb-a02b-e466330db5de, arn:aws:acm:ap-south-1:774974967276:certificate/ca580ef0-fae7-402a-b06b-5173e6380189, arn:aws:acm:ap-south-1:774974967276:certificate/c4ad262f-4e88-4dd7-b499-cc1f7e958fdf
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+spec:
+  rules:
+    - host: "social.snaptrude.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: socialcom 
+                port:
+                  number: 6045
+    - host: "socialdotde.snaptru.de"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: socialde
+                port:
+                  number: 6045
+    - host: "weworksocial.snaptrude.co"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wework
+                port:
+                  number: 6045

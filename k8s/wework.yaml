@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: wework
+spec:
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: wework
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: wework
+    spec:
+      containers:
+      - name: wework
+        image: 774974967276.dkr.ecr.ap-south-1.amazonaws.com/socialnetwork:we11
+        ports:
+        - containerPort: 6045
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wework
+  namespace: default
+  labels:
+    app: wework
+spec:
+  ports:
+  - name: http
+    port: 6045
+    protocol: TCP
+    targetPort: 6045
+  selector:
+    app: wework
+  type: NodePort
