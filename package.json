@@ -1,0 +1,19 @@
+{
+  "name": "st-k8s-tf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChiragPasrich/st-k8s-tf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChiragPasrich/st-k8s-tf/issues"
+  },
+  "homepage": "https://github.com/ChiragPasrich/st-k8s-tf#readme"
+}
